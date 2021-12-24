@@ -26,7 +26,7 @@ sap-api-integrations-production-order-confirmation-reads が対応する APIサ�
 ## 本レポジトリ に 含まれる API名
 sap-api-integrations-production-order-confirmation-reads には、次の API をコールするためのリソースが含まれています。  
 
-* ProdnOrdConf2（製造記録票 - 確認）※製造記録票の詳細データを取得するために、ToMaterialMovements、ToBatchCharacteristic、と合わせて利用されます。
+* ProdnOrdConf2（製造記録票 - 確認）※製造記録票関連データを取得するために、ToMaterialMovements、ToBatchCharacteristic、と合わせて利用されます。
 * ToMaterialMovements（製造記録票 - 入出庫）
 * ToBatchCharacteristic（製造記録票 - ロット特性）
 
