@@ -40,6 +40,9 @@ sap-api-integrations-production-order-confirmation-reads において、API へ�
 
 * inoutSDC.ProductionOrderConfirmation.OrderID（製造指図）
 * inoutSDC.ProductionOrderConfirmation.MaterialMovements.Batch（ロット）
+* inoutSDC.ProductionOrderConfirmation.ConfirmationGroup（確認グループ）
+* inoutSDC.ProductionOrderConfirmation.Sequence（順序）
+* inoutSDC.ProductionOrderConfirmation.OrderOperation（作業）
 
 ## SAP API Bussiness Hub の API の選択的コール
 
