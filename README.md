@@ -76,7 +76,7 @@ accepter における データ種別 の指定に基づいて SAP_API_Caller �
 caller.go の func() 毎 の 以下の箇所が、指定された API をコールするソースコードです。  
 
 ```
-func (c *SAPAPICaller) AsyncGetProductionOrderConfirmation(orderID, batch string, accepter []string) {
+func (c *SAPAPICaller) AsyncGetProductionOrderConfirmation(orderID, batch, confirmationGroup, sequence, orderOperation string, accepter []string) {
 	wg := &sync.WaitGroup{}
 	wg.Add(len(accepter))
 	for _, fn := range accepter {
@@ -94,6 +94,16 @@ func (c *SAPAPICaller) AsyncGetProductionOrderConfirmation(orderID, batch string
 		case "BatchCharacteristic":
 			func() {
 				c.BatchCharacteristic(batch)
+				wg.Done()
+			}()
+		case "ConfByOrderIDConfGroup":
+			func() {
+				c.ConfByOrderIDConfGroup(orderID, confirmationGroup)
+				wg.Done()
+			}()
+		case "ConfByOrderIDSeqOp":
+			func() {
+				c.ConfByOrderIDSeqOp(orderID, sequence, orderOperation)
 				wg.Done()
 			}()
 		default:
