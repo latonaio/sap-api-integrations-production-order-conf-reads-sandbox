@@ -1,0 +1,21 @@
+{
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-production-order-confirmation-reads/SAP_API_Caller/caller.go#L200",
+	"function": "sap-api-integrations-production-order-confirmation-reads/SAP_API_Caller.(*SAPAPICaller).BatchCharacteristic",
+	"level": "INFO",
+	"message": [
+		{
+			"ConfirmationGroup": "210",
+			"ConfirmationCount": "1",
+			"MaterialDocument": "4900000554",
+			"MaterialDocumentItem": "1",
+			"MaterialDocumentYear": "2016",
+			"Plant": "1710",
+			"Material": "FG226",
+			"Batch": "0000000008",
+			"CharcInternalID": "4",
+			"Characteristic": "YB_BATCH_NUMBER",
+			"CharcValue": "0000000008"
+		}
+	],
+	"time": "2022-01-03T10:29:00.480804+09:00"
+}

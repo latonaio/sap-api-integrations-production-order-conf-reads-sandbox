@@ -10,7 +10,7 @@ import (
 func main() {
 	l := logger.NewLogger()
 	fr := sap_api_input_reader.NewFileReader()
-	inoutSDC := fr.ReadSDC("./Inputs//SDC_Production_Order_Confirmation_Conf_By_OrderID_sample.json")
+	inoutSDC := fr.ReadSDC("./Inputs//SDC_Production_Order_Confirmation_Conf_By_OrderID_Seq_Op_sample.json")
 	caller := sap_api_caller.NewSAPAPICaller(
 		"https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/", l,
 	)
@@ -19,12 +19,17 @@ func main() {
 	if len(accepter) == 0 || accepter[0] == "All" {
 
 		accepter = []string{
-			"ConfByOrderID", "MaterialMovements",
+			"ConfByOrderID", "MaterialMovements", "BatchCharacteristic",
+			"ConfByOrderIDConfGroup", "ConfByOrderIDSeqOp",
 		}
 	}
 
 	caller.AsyncGetProductionOrderConfirmation(
 		inoutSDC.ProductionOrderConfirmation.OrderID,
+		inoutSDC.ProductionOrderConfirmation.MaterialMovements.Batch,
+		inoutSDC.ProductionOrderConfirmation.ConfirmationGroup,
+		inoutSDC.ProductionOrderConfirmation.Sequence,
+		inoutSDC.ProductionOrderConfirmation.OrderOperation,
 		accepter,
 	)
 }

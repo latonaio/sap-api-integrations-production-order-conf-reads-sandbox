@@ -27,8 +27,11 @@ sap-api-integrations-production-order-confirmation-reads が対応する APIサ�
 sap-api-integrations-production-order-confirmation-reads には、次の API をコールするためのリソースが含まれています。  
 
 * ProdnOrdConf2（製造記録票 - 確認）※製造記録票関連データを取得するために、ToMaterialMovements、ToBatchCharacteristic、と合わせて利用されます。
-* ToMaterialMovements（製造記録票 - 入出庫）
-* ToBatchCharacteristic（製造記録票 - ロット特性）
+* ToMaterialMovements（製造記録票 - 入出庫 ※To）
+* ToBatchCharacteristic（製造記録票 - ロット特性 ※To）
+* ProdnOrdConfMatlDocItm（製造記録票 - 入出庫）※製造記録票関連データを取得するために、ToBatchCharacteristic、と合わせて利用されます。
+* ToBatchCharacteristic（製造記録票 - ロット特性 ※To）
+* ProdnOrderConfBatchCharc（製造記録票 - ロット特性）
 
 ## API への 値入力条件 の 初期値
 sap-api-integrations-production-order-confirmation-reads において、API への値入力条件の初期値は、入力ファイルレイアウトの種別毎に、次の通りとなっています。  
@@ -36,6 +39,7 @@ sap-api-integrations-production-order-confirmation-reads において、API へ�
 ### SDC レイアウト
 
 * inoutSDC.ProductionOrderConfirmation.OrderID（製造指図）
+* inoutSDC.ProductionOrderConfirmation.MaterialMovements.Batch（ロット）
 
 ## SAP API Bussiness Hub の API の選択的コール
 
@@ -72,7 +76,7 @@ accepter における データ種別 の指定に基づいて SAP_API_Caller �
 caller.go の func() 毎 の 以下の箇所が、指定された API をコールするソースコードです。  
 
 ```
-func (c *SAPAPICaller) AsyncGetProductionOrderConfirmation(orderID string, accepter []string) {
+func (c *SAPAPICaller) AsyncGetProductionOrderConfirmation(orderID, batch string, accepter []string) {
 	wg := &sync.WaitGroup{}
 	wg.Add(len(accepter))
 	for _, fn := range accepter {
@@ -80,6 +84,16 @@ func (c *SAPAPICaller) AsyncGetProductionOrderConfirmation(orderID string, accep
 		case "ConfByOrderID":
 			func() {
 				c.ConfByOrderID(orderID)
+				wg.Done()
+			}()
+		case "MaterialMovements":
+			func() {
+				c.MaterialMovements(batch)
+				wg.Done()
+			}()
+		case "BatchCharacteristic":
+			func() {
+				c.BatchCharacteristic(batch)
 				wg.Done()
 			}()
 		default:
@@ -98,7 +112,7 @@ func (c *SAPAPICaller) AsyncGetProductionOrderConfirmation(orderID string, accep
 
 ```
 {
-	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-production-order-confirmation-reads/SAP_API_Caller/caller.go#L53",
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-production-order-confirmation-reads/SAP_API_Caller/caller.go#L63",
 	"function": "sap-api-integrations-production-order-confirmation-reads/SAP_API_Caller.(*SAPAPICaller).ConfByOrderID",
 	"level": "INFO",
 	"message": [
@@ -271,6 +285,6 @@ func (c *SAPAPICaller) AsyncGetProductionOrderConfirmation(orderID string, accep
 			"to_ProdnOrdConfMatlDocItm": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PROD_ORDER_CONFIRMATION_2_SRV/ProdnOrdConf2(ConfirmationGroup='101',ConfirmationCount='1')/to_ProdnOrdConfMatlDocItm"
 		}
 	],
-	"time": "2021-12-22T14:08:20.435477+09:00"
+	"time": "2022-01-03T10:03:53.273709+09:00"
 }
 ```
