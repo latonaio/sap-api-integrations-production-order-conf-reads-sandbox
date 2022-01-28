@@ -42,5 +42,5 @@
 			"to_ProdnOrderConfBatchCharc": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PROD_ORDER_CONFIRMATION_2_SRV/ProdnOrdConfMatlDocItm(ConfirmationGroup='101',ConfirmationCount='1',MaterialDocument='4900000483',MaterialDocumentItem='1',MaterialDocumentYear='2016')/to_ProdnOrderConfBatchCharc"
 		}
 	],
-	"time": "2022-01-03T11:31:27.031626+09:00"
+	"time": "2022-01-28T15:44:38+09:00"
 }

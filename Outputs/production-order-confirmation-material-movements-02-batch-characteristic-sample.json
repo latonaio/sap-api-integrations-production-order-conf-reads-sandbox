@@ -1,5 +1,5 @@
 {
-	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-production-order-confirmation-reads/SAP_API_Caller/caller.go#L151",
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-production-order-confirmation-reads/SAP_API_Caller/caller.go#L161",
 	"function": "sap-api-integrations-production-order-confirmation-reads/SAP_API_Caller.(*SAPAPICaller).MaterialMovements",
 	"level": "INFO",
 	"message": [
@@ -17,5 +17,5 @@
 			"CharcValue": "0000000008"
 		}
 	],
-	"time": "2022-01-03T10:23:25.512695+09:00"
+	"time": "2022-01-28T15:43:42+09:00"
 }

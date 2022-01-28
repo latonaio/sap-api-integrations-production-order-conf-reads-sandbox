@@ -24,7 +24,7 @@
 			"IsReversal": false,
 			"APIConfHasNoGoodsMovements": false,
 			"OrderConfirmationRecordType": "L40",
-			"ConfirmationEntryDate": "/Date(1473897600000)/",
+			"ConfirmationEntryDate": "2016-09-15T09:00:00+09:00",
 			"ConfirmationEntryTime": "PT08H44M29S",
 			"EnteredByUser": "CB9980000078",
 			"LastChangeDate": "",
@@ -46,8 +46,8 @@
 			"ConfirmedBreakDuration": "0.000",
 			"EmployeeSuitability": "",
 			"NumberOfEmployees": "0.00",
-			"PostingDate": "/Date(1473897600000)/",
-			"ConfirmedExecutionStartDate": "/Date(1473897600000)/",
+			"PostingDate": "2016-09-15T09:00:00+09:00",
+			"ConfirmedExecutionStartDate": "2016-09-15T09:00:00+09:00",
 			"ConfirmedExecutionStartTime": "PT08H41M56S",
 			"ConfirmedSetupEndDate": "",
 			"ConfirmedSetupEndTime": "PT00H00M00S",
@@ -57,7 +57,7 @@
 			"ConfirmedProcessingEndTime": "PT00H00M00S",
 			"ConfirmedTeardownStartDate": "",
 			"ConfirmedTeardownStartTime": "PT00H00M00S",
-			"ConfirmedExecutionEndDate": "/Date(1473897600000)/",
+			"ConfirmedExecutionEndDate": "2016-09-15T09:00:00+09:00",
 			"ConfirmedExecutionEndTime": "PT08H41M56S",
 			"ConfirmationUnit": "PC",
 			"ConfirmationYieldQuantity": "100",
@@ -88,5 +88,5 @@
 			"to_ProdnOrdConfMatlDocItm": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PROD_ORDER_CONFIRMATION_2_SRV/ProdnOrdConf2(ConfirmationGroup='101',ConfirmationCount='1')/to_ProdnOrdConfMatlDocItm"
 		}
 	],
-	"time": "2022-01-03T11:26:34.711101+09:00"
+	"time": "2022-01-28T15:41:41+09:00"
 }
